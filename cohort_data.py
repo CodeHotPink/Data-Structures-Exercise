@@ -64,20 +64,17 @@ def sort_by_cohort(filename):
         if line_list[4] == "Winter 2016\n":
             winter_16.append("{} {}".format(line_list[0],line_list[1]))
 
-        if line_list[2] != "" and line_list[4] == "Spring 2016":
+        if line_list[4] == "Spring 2016\n":
             spring_16.append("{} {}".format(line_list[0],line_list[1]))
 
-        if line_list[2] != "" and line_list[4] == "Summar 2016":
+        if line_list[4] == "Summar 2016\n":
             summer_16.append("{} {}".format(line_list[0],line_list[1]))        
  
-        if line_list[2] != "" and line_list[4] == "Fall 2015":
+        if line_list[4] == "Fall 2015\n":
             fall_15.append("{} {}".format(line_list[0],line_list[1]))
 
-        if line_list[4] == "G":
+        if line_list[4] == "G\n":
             ghosts.append("{} {}".format(line_list[0],line_list[1]))
-
-
-    print(winter_16)
 
     return all_students
 
