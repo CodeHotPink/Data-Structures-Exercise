@@ -78,7 +78,7 @@ def sort_by_cohort(filename):
 
     return all_students
 
-sort_by_cohort("cohort_data.txt")
+# sort_by_cohort("cohort_data.txt")
 
 def hogwarts_by_house(filename):
     """TODO: Sort students into lists by house and return all lists in one list.
@@ -104,9 +104,37 @@ def hogwarts_by_house(filename):
     instructors = []
 
     # Code goes here
+    file = open(filename,"r")
+
+    for line in file:
+        line_list = line.split("|")
+    
+        if line_list[2] == "Dumbledore's Army":
+            dumbledores_army.append(line_list[1])
+
+        if line_list[2] == "Gryffindor":
+            gryffindor.append(line_list[1])
+
+        if line_list[2] == "Hufflepuff":
+            hufflepuff.append(line_list[1])
+
+        if line_list[2] == "Ravenclaw":
+            ravenclaw.append(line_list[1])
+
+        if line_list[2] == "Slytherin":
+            slytherin.append(line_list[1])
+
+        if line_list[4] == "G\n":
+            ghosts.append(line_list[1])
+
+        if line_list[4] == "I\n":
+            instructors.append(line_list[1])
+
+    all_hogwarts = [sorted(dumbledores_army), sorted(gryffindor), sorted(hufflepuff), sorted(ravenclaw), sorted(slytherin), sorted(ghosts), sorted(instructors)]
 
     return all_hogwarts
 
+hogwarts_by_house("cohort_data.txt")
 
 def all_students_tuple_list(filename):
     """TODO: Return a list of tuples of student data.
