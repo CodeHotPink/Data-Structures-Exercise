@@ -22,15 +22,13 @@ def unique_houses(filename):
             if line_list[2] != "":
                 houses.add(line_list[2])
 
-    print(houses)
-
     
 
     # Code goes here
 
     return houses
 
-unique_houses("cohort_data.txt")
+#unique_houses("cohort_data.txt")
 
 def sort_by_cohort(filename):
     """TODO: Return a list of all cohort lists, including ghosts but not instructors.
@@ -54,9 +52,36 @@ def sort_by_cohort(filename):
     ghosts = []
 
     # Code goes here
+    file = open(filename,"r")
+
+
+    for line in file:
+        line_list = line.split("|")
+    
+        if line_list[2] != "":
+            all_students.append("{} {}".format(line_list[0],line_list[1]))
+
+        if line_list[4] == "Winter 2016\n":
+            winter_16.append("{} {}".format(line_list[0],line_list[1]))
+
+        if line_list[2] != "" and line_list[4] == "Spring 2016":
+            spring_16.append("{} {}".format(line_list[0],line_list[1]))
+
+        if line_list[2] != "" and line_list[4] == "Summar 2016":
+            summer_16.append("{} {}".format(line_list[0],line_list[1]))        
+ 
+        if line_list[2] != "" and line_list[4] == "Fall 2015":
+            fall_15.append("{} {}".format(line_list[0],line_list[1]))
+
+        if line_list[4] == "G":
+            ghosts.append("{} {}".format(line_list[0],line_list[1]))
+
+
+    print(winter_16)
 
     return all_students
 
+sort_by_cohort("cohort_data.txt")
 
 def hogwarts_by_house(filename):
     """TODO: Sort students into lists by house and return all lists in one list.
@@ -198,9 +223,9 @@ def find_house_members_by_student_name(student_list):
 
 
 
-if __name__ == "__main__":
-    import doctest
+# if __name__ == "__main__":
+#     import doctest
 
-    result = doctest.testmod()
-    if result.failed == 0:
-        print("ALL TESTS PASSED")
+#     result = doctest.testmod()
+#     if result.failed == 0:
+#         print("ALL TESTS PASSED")
