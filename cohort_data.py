@@ -14,18 +14,12 @@ def unique_houses(filename):
 
     """
     file = open(filename,"r")
-
-
     houses = set()
+
     for line in file:
             line_list = line.split("|")
             if line_list[2] != "":
                 houses.add(line_list[2])
-
-    
-
-    # Code goes here
-
     return houses
 
 #unique_houses("cohort_data.txt")
@@ -51,13 +45,11 @@ def sort_by_cohort(filename):
     fall_15 = []
     ghosts = []
 
-    # Code goes here
     file = open(filename,"r")
-
 
     for line in file:
         line_list = line.split("|")
-    
+
         if line_list[2] != "":
             all_students.append("{} {}".format(line_list[0],line_list[1]))
 
@@ -68,8 +60,8 @@ def sort_by_cohort(filename):
             spring_16.append("{} {}".format(line_list[0],line_list[1]))
 
         if line_list[4] == "Summar 2016\n":
-            summer_16.append("{} {}".format(line_list[0],line_list[1]))        
- 
+            summer_16.append("{} {}".format(line_list[0],line_list[1]))
+
         if line_list[4] == "Fall 2015\n":
             fall_15.append("{} {}".format(line_list[0],line_list[1]))
 
@@ -103,12 +95,11 @@ def hogwarts_by_house(filename):
     ghosts = []
     instructors = []
 
-    # Code goes here
     file = open(filename,"r")
 
     for line in file:
         line_list = line.split("|")
-    
+
         if line_list[2] == "Dumbledore's Army":
             dumbledores_army.append(line_list[1])
 
@@ -151,17 +142,13 @@ def all_students_tuple_list(filename):
 
     student_list = []
 
-    # Code goes here
     file = open(filename,"r")
 
     for line in file:
         line_list = line.split("|")
         student_name = "{} {}".format(line_list[0],line_list[1])
         line_tuple = tuple([student_name,line_list[2],line_list[3],line_list[4][:-1]])
-
         student_list.append(line_tuple)
-
-
     return student_list
 # all_students_tuple_list("cohort_data.txt")
 
